@@ -1,4 +1,4 @@
-//main2.cpp file for Part 2 in Create A Machine Learning Library in C++
+//main3.cpp file for Part 3 in Create A Machine Learning Library in C++
 //Copyright 2013 Joe DiVita
 
 #include <nlopt.hpp>
