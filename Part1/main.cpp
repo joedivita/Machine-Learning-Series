@@ -19,7 +19,7 @@ mat computeCost(const mat &X, const mat &y, const mat &theta)
     return ((double)1/(2*(X.n_rows)))*(X*theta-y).t()*(X*theta-y);
 }
 
-//Our Gradient Descent Function --> returns a vector theta, of our fitted model parameters.
+//Our Gradient Descent Function --> returns a vector theta, fitted to our data.
 mat gradientDescent(const mat &X, const mat &y)
 {
     //gradient descent constants
@@ -39,7 +39,7 @@ mat gradientDescent(const mat &X, const mat &y)
     return theta;
 }
 
-//Our Normal Equation Function --> returns a vector theta, of our fitted model parameters.
+//Our Normal Equation Function --> returns a vector theta, fit to our training data.
 mat normalEquation(const mat &X, const mat &y)
 {
     return pinv(X.t()*X)*X.t()*y;
@@ -77,11 +77,7 @@ void normalize(mat &X, mat &mu, mat &sigma)
 }
 
 int main(int argc, const char * argv[])
-{
-    /*
-     THIS SECTION PERTAINS TO READING IN OUR TRAINIG DATA FROM A OUR TRAINING DATA FILE, WHICH CONTAINS COMMA SEPERATED VALUES OF OUR FEATURES, WITH THE LAST COLUMN BEING THE "ANSWER"
-     */
-    
+{       
     //open the file containing our training dataset
     ifstream myfile;
     myfile.open("housingInfo.txt");
@@ -150,10 +146,6 @@ int main(int argc, const char * argv[])
                 X(i,k) = atof(section.c_str());
         }
     }
-    
-    /*
-     THIS ENDS THE SECTION OF LOADING TRAINING DATA IN FROM TEXT FILE
-    */
 
     cout<<""<<endl;
     
@@ -176,11 +168,7 @@ int main(int argc, const char * argv[])
     cout<<"Normal Equation:"<<endl;
     theta = normalEquation(X,y);
     cout<<theta<<endl;
-    
-    /*********************
-    Use our new learning algorithm to predict housing prices based on our training data:
-    *********************/
-    
+        
     //initialize an empty vector to hold the features for our example
     mat testSetFeatures = mat(n,1);
     
