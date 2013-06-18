@@ -1,6 +1,6 @@
-These are the source files that go along with Part 2 of my 
-Create A Machine Learning Library in C++ Series on my blog
-located at http:// joediv.com.
+These are the source files that go along with Part 2 
+of my Create A Machine Learning Library in C++ Series
+located at http://joediv.com.
 
 main2.cpp requires that Armadillo C++ Library is installed  in 
 order to compile. The library can be found at their website:
