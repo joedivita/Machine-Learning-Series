@@ -1,0 +1,16 @@
+These are the source files that go along with Part 1
+of my Create A Machine Learning Library in C++ Series
+located at http://joediv.com.
+
+main.cpp requires that Armadillo C++ Library is installed  in
+order to compile. The library can be found at their website:
+
+http://arma.sourceforge.net/
+
+The Mac Accelerate Framework, or LAPACK/BLAS may also be required to
+perform certain functions.
+
+Example of linking to Armadillo and Accelerate Framework:
+
+g++ main2.cpp -framework Accelerate -larmadillo -o learning
+
