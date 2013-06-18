@@ -1,10 +1,5 @@
-//
-//  main.cpp
-//  c-ml-lib
-//
-//  Created by Joseph DiVita on 6/5/13.
-//  Copyright (c) 2013 SpirelyLabs. All rights reserved.
-//
+//main.cpp file for Part 1 in Create a Machine Learning Library in C++
+//Copyright 2013 Joe DiVita
 
 #include <iostream>
 #include <cmath>
@@ -160,7 +155,6 @@ int main(int argc, const char * argv[])
      THIS ENDS THE SECTION OF LOADING TRAINING DATA IN FROM TEXT FILE
     */
 
-    
     cout<<""<<endl;
     
     //print out X
@@ -171,7 +165,6 @@ int main(int argc, const char * argv[])
     mat mu = mat(1,X.n_cols);
     mat sigma = mat(1,X.n_cols);
     
-    //that is why we pass in pointers to these two values: we want the normalize function to update these values so that we can use them later when we get user input.
     normalize(X,mu,sigma);
     
     //get value for theta by using gradient descent.
