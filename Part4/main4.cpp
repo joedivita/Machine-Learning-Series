@@ -1,3 +1,6 @@
+//main4.cpp file for Part4 in Create A Machine Learning Library in C++
+//Copyright 2013 Joe DiVita
+
 #include <iostream>
 #include "smartdata.hpp"
 
