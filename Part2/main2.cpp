@@ -1,7 +1,6 @@
 //main2.cpp file for Part 2 in Create A Machine Learning Library in C++
 //Copyright 2013 Joe DiVita
 
-#include <nlopt.hpp>
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -70,31 +69,6 @@ mat gradientDescent(const mat &X, const mat &y)
     return theta;
 }
 
-double myvfunc(const vector<double> &x, vector<double> &grad, void *my_func_data)
-{
-    //Extract and recast our X & y mats stored in my_func_data
-    mat* pC = (mat *)my_func_data;
-    mat Xmat = pC[0];
-    mat y = pC[1];
-    
-    //Create an arma::mat called theta, converted from type vector<double>
-    mat theta = conv_to<mat>::from(x);
-
-    if (!grad.empty()) {
-        
-        //comput the gradient
-        mat gradient = computeGradient(Xmat, y, theta);
-        
-        //convert the mat to type vector<double> required by NLopt
-        typedef vector<double> stdvec;
-        grad = conv_to<stdvec>::from(gradient);
-
-    }
-    
-    //return cost
-    mat cost = computeCost(Xmat, y, theta);
-    return cost(0,0);
-}
 int main(){
     
     //Create our testdata
@@ -152,49 +126,6 @@ int main(){
     }
     
     cout<<"Result of this tumor is: "<<result<<" with "<<100.0*predictionConfidenceNum<<"% confidence"<<endl;
-    
-    //Initialize our opt object with the LBFGS algorithm and number of parameters
-    nlopt::opt opt(nlopt::LD_LBFGS,X.n_cols);
-    
-    //Put X & y into a variable to be passed as extra data
-    mat C[2];
-    C[0] = X;
-    C[1] = y;
-    
-    //create a starting point for theta
-    vector<double> testTheta(2);
-    testTheta[0] = 0; testTheta[1] = 0;
-    
-    //Assign objective as minimizing myvfunc (cost function) and pass in &C as extra data
-    opt.set_min_objective(myvfunc, &C);
-    
-    //Set stopping tolerance
-    opt.set_ftol_rel(1e-14);
-    
-    //variable to hold returned minimum cost
-    double minf = 0;
-    
-    //run the optimize function to optimize theta
-    nlopt::result myResult = opt.optimize(testTheta, minf);
-    
-    //convert vector<double> testTheta to type mat
-    mat testTheta2 = conv_to<mat>::from(testTheta);
-    
-    
-    //use the theta found by this method to make predictions:
-    
-    mat predictionConfidence2 = sigmoid(testTheta2.t()*testSet);
-    
-    string result2 = "Malignant";
-    double predictionConfidenceNum2 = predictionConfidence2(0,0);
-    
-    if(predictionConfidenceNum2 < 0.5)
-    {
-        result2 = "Benign";
-        predictionConfidenceNum2 = 1-predictionConfidenceNum2;
-    }
-    
-    cout<<"Result of this tumor is: "<<result2<<" with "<<100.0*predictionConfidenceNum2<<"% confidence"<<endl;
-    
+        
     return 0;
 }
