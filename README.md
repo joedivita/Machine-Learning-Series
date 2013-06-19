@@ -5,9 +5,6 @@ This is a repo for all the files used in my series: [Create A Machine Learning L
 
 The series follows along with Professor Andrew Ng's Stanford Course "Machine Learning" on Coursera, and implements each section in C++.  The series then attempts to organize all of the learning algorithms taught in the course into an easy to use C++ library.
 
-Resources
-=====
-
 Dependencies
 -----
 
@@ -22,7 +19,9 @@ Compiling
 
 Example compiling Part3 & linking with Armadillo, NLopt, & the Accelerate Framework: 
 
+```bash
 g++ main3.cpp -framework Accelerate -larmadillo -lnlopt -lm -o learning
+```
 
 Questions / Comments
 -----
