@@ -9,7 +9,6 @@ are installed in order to compile. The libraries can be
 found at their respective websites:
 
 http://arma.sourceforge.net
-
 http://ab-initio.mit.edu/wiki/index.php/NLopt
 
 The Mac Accelerate Framework, or LAPACK/BLAS may also be required to
