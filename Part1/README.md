@@ -15,5 +15,5 @@ perform certain functions.
 Example of linking to Armadillo and Accelerate Framework:
 
 ```bash
-g++ main2.cpp -framework Accelerate -larmadillo -o learning
+g++ main.cpp -framework Accelerate -larmadillo -o learning
 ```
