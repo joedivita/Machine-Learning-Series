@@ -2,12 +2,6 @@
 //Copyright 2013 Joe DiVita
 
 #include <iostream>
-#include <cmath>
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <utility>
 #include <armadillo>
 
 using namespace std;
