@@ -36,9 +36,7 @@ mat AND_Gate(const mat &inputs)
     for(int i=1; i<(inputs.n_rows); i++)
         theta_AND(0,i) = 20.0;
     
-    mat AND_result = reduceNoise(sigmoid(theta_AND*inputs));
-    
-    return AND_result;
+    return reduceNoise(sigmoid(theta_AND*inputs));
 }
 
 mat OR_Gate(const mat &inputs)
@@ -49,9 +47,7 @@ mat OR_Gate(const mat &inputs)
     for(int i=1; i<(inputs.n_rows); i++)
         theta_OR(0,i) = 20.0;
     
-    mat OR_result = reduceNoise(sigmoid(theta_OR*inputs));
-    
-    return OR_result;
+    return reduceNoise(sigmoid(theta_OR*inputs));
 }
 
 mat NOT_AND_NOT_Gate(const mat &inputs)
@@ -62,9 +58,7 @@ mat NOT_AND_NOT_Gate(const mat &inputs)
     for(int i=1; i<(inputs.n_rows); i++)
         theta_NOT_AND_NOT(0,i) = -20.0;
     
-    mat NOT_AND_NOT_result = reduceNoise(sigmoid(theta_NOT_AND_NOT*inputs));
-    
-    return NOT_AND_NOT_result;
+    return reduceNoise(sigmoid(theta_NOT_AND_NOT*inputs));
 }
 
 int main()
